@@ -1,0 +1,81 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ant setup database",
+      "icon": {
+        "id": "sign-in",
+        "color": "terminal.ansiRed"
+      },
+      "type": "shell",
+      "command": "${command:abl.getDlcDirectory}\\ant\\bin\\ant.bat",
+      "linux" : {
+        "command": "${command:abl.getDlcDirectory}/ant/bin/ant",
+      },
+      "args": [
+        "-DDLC=${command:abl.getDlcDirectory}",
+        "setup"
+      ],
+    },
+    {
+      "label": "prowin start.p",
+      "icon": {
+        "id": "layout",
+        "color": "terminal.ansiCyan"
+      },
+      "type": "shell",
+      "windows":{
+        "command": "${command:abl.getDlcDirectory}\\bin\\prowin.exe",
+        "args": [
+          "-db", "db/sports2020", "-ld", "sports", "-RO", "-1",
+          "-ininame", "conf/develop.ini",
+          "-p", "start.p",
+          "-nosplash",
+          "-zdlc", "${command:abl.getDlcDirectory}",
+          "-assemblies",
+          "${workspaceFolder}/assemblies",
+          ]  
+      },
+      "linux":{
+        "command": "${command:abl.getDlcDirectory}/bin/_progres",
+        "args": [
+          "-db", "db/sports2020", "-ld", "sports", "-RO", "-1",
+          "-p", "start.p",
+          "-zdlc", "${command:abl.getDlcDirectory}"
+        ]
+      }
+    },
+    {
+      "label": "runtime prowin start.p",
+      "icon": {
+        "id": "run",
+        "color": "terminal.ansiCyan"
+      },
+      "type": "shell",
+      "windows":{
+        "command": "${command:abl.getDlcDirectory}\\bin\\prowin.exe",
+        "args": [
+          "-db", "db/sports2020", "-ld", "sports", "-RO", "-1",
+          "-ininame", "conf/runtime.ini",
+          "-rr",
+          "-q",
+          "-p", "start.p",
+          "-nosplash",
+          "-zdlc", "${command:abl.getDlcDirectory}",
+          "-assemblies",
+          "${workspaceFolder}/assemblies",
+          ]  
+      },
+      "linux":{
+        "command": "${command:abl.getDlcDirectory}/bin/_progres",
+        "args": [
+          "-db", "db/sports2020", "-ld", "sports", "-RO", "-1",
+          "-p", "start.p",
+          "-zdlc", "${command:abl.getDlcDirectory}"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+    "Static Class variable": {
+    "scope": "abl",
+    "prefix": "DSVCL",
+    "body": [
+        "define static variable $1 as Progress.Lang.Object no-undo."
+    ],
+    "description": "Static Class variable"
+},
+"Static Com-handle variable": {
+    "scope": "abl",
+    "prefix": "DSVCM",
+    "body": [
+        "define static variable $1 as com-handle no-undo."
+    ],
+    "description": "Static Com-handle variable"
+},
+"Static Decimal variable": {
+    "scope": "abl",
+    "prefix": "DSVDE",
+    "body": [
+        "define static variable $1 as decimal no-undo."
+    ],
+    "description": "Static Decimal variable"
+},
+"Static Datetime variable": {
+    "scope": "abl",
+    "prefix": "DSVDM",
+    "body": [
+        "define static variable $1 as datetime no-undo."
+    ],
+    "description": "Static Datetime variable"
+},
+"Static Date variable": {
+    "scope": "abl",
+    "prefix": "DSVDT",
+    "body": [
+        "define static variable $1 as date no-undo."
+    ],
+    "description": "Static Date variable"
+},
+"Static Datetime-tz variable": {
+    "scope": "abl",
+    "prefix": "DSVDTZ",
+    "body": [
+        "define static variable $1 as datetime-tz no-undo."
+    ],
+    "description": "Static Datetime-tz variable"
+},
+"Static Handle variable": {
+    "scope": "abl",
+    "prefix": "DSVHN",
+    "body": [
+        "define static variable $1 as handle no-undo."
+    ],
+    "description": "Static Handle variable "
+},
+"Static Int64 variable": {
+    "scope": "abl",
+    "prefix": "DSVI6",
+    "body": [
+        "define static variable $1 as int64 no-undo."
+    ],
+    "description": "Static Int64 variable"
+},
+"Static Integer variable": {
+    "scope": "abl",
+    "prefix": "DSVIN",
+    "body": [
+        "define static variable $1 as integer no-undo."
+    ],
+    "description": "Static Integer variable"
+},
+"Static Longchar variable": {
+    "scope": "abl",
+    "prefix": "DSVLC",
+    "body": [
+        "define static variable $1 as longchar no-undo."
+    ],
+    "description": "Static Longchar variable"
+},
+"Static Logical variable": {
+    "scope": "abl",
+    "prefix": "DSVLG",
+    "body": [
+        "define static variable $1 as logical no-undo."
+    ],
+    "description": "Static Logical variable"
+},
+"Static Mem Pointer variable": {
+    "scope": "abl",
+    "prefix": "DSVMP",
+    "body": [
+        "define static variable $1 as memptr no-undo."
+    ],
+    "description": "Static Mem Pointer variable"
+},
+"Static Raw variable": {
+    "scope": "abl",
+    "prefix": "DSVR",
+    "body": [
+        "define static variable $1 as raw no-undo."
+    ],
+    "description": "Static Raw variable"
+},
+"Static Recid variable": {
+    "scope": "abl",
+    "prefix": "DSVRC",
+    "body": [
+        "define static variable $1 as recid no-undo."
+    ],
+    "description": "Static Recid variable"
+},
+"Static ROWID variable": {
+    "scope": "abl",
+    "prefix": "DSVRI",
+    "body": [
+        "define static variable $1 as rowid no-undo."
+    ],
+    "description": "Static ROWID variable"
+},
+"Static Widget variable": {
+    "scope": "abl",
+    "prefix": "DSVWH",
+    "body": [
+        "define static variable $1 as widget-handle no-undo."
+    ],
+    "description": "Static Widget variable"
+}
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="abl-sample">
+
+    <property environment="env" />
+    <property name="DLC" value="${env.DLC}"/>
+    <property name="PCTJar" value="${DLC}/pct/PCT.jar"/>
+
+    <taskdef resource="PCT.properties" classpath="${PCTJar}" />
+    <typedef resource="types.properties" classpath="${PCTJar}" />
+
+    <property name="datadirectory" value="${basedir}/db"/>
+    <property name="dumplocation" value="${basedir}/dump"/>
+    <DlcHome value="${DLC}" />
+
+    <extension-point name="setup" description="Create directories and databases"/>
+
+    <target name="clean" description="Builds source files">
+
+        <delete>
+            <fileset dir="ant-build" includes="**/*.r" />
+        </delete>
+
+    </target>
+    
+    <target name="create_sports2020" extensionOf="setup" description="Create sports2020 database">
+
+        <mkdir dir="${datadirectory}" />
+        <PCTCreateBase dbName="sports2020" destDir="${datadirectory}"
+            sourceDb="${DLC}/sports2020" newInstance="True" />
+
+        <mkdir dir="${dumplocation}"/>
+            <PCTDumpSchema destFile="${dumplocation}/sports2020.df" cpstream="utf-8">
+            <DBConnection dbName="${datadirectory}/sports2020" readOnly="true" singleUser="true" />
+        </PCTDumpSchema>
+
+    </target>
+
+    <target name="build" description="Builds source files">
+
+        <mkdir dir="ant-build" />
+
+        <PCTCompile destDir="ant-build" dlcHome="${DLC}" cpstream="utf-8">
+
+            <fileset dir="src">
+                <include name="**/*.cls" />
+            </fileset>
+
+            <propath>
+                <pathelement path="src" />
+            </propath>
+
+        </PCTCompile>
+
+        <PCTCompile destDir="ant-build" dlcHome="${DLC}" cpstream="utf-8">
+
+            <fileset dir="src">
+                <include name="**/*.w" />
+                <include name="**/*.p" />
+            </fileset>
+
+            <propath>
+                <pathelement path="src" />
+            </propath>
+
+        </PCTCompile>
+
+    </target>
+
+</project>

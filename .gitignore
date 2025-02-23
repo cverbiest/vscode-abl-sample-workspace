@@ -1,0 +1,40 @@
+# Unwanted files
+*.bak
+
+# logfiles
+*.log
+
+# memory dump
+*.mdmp
+
+# OpenEdge ABL Files
+*.r
+protrace.*
+procore*.*
+untitled*.*
+debugger.pref
+
+# ignore database related files
+*.db
+*.b1
+*.d1
+*.lg
+*.lic
+*.lk
+
+# PCT, gradle & sonarscanner
+.builder/
+.pct/
+.scannerwork/
+.sonar/
+.sonarlint/
+
+# Test results
+results.xml
+
+build/
+ant-build/
+db/
+dump/
+
+.vscode/abl-cce.code-snippets

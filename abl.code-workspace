@@ -1,0 +1,80 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "extensions": { "recommendations": ["cverbiest.abl-developer-pack"]},
+  "settings": {
+    "webSearch.defaultSearchEngines": [
+      {
+        "sitename": "ABL reference",
+        "url": "https://docs.progress.com/search?bundle=abl-reference&labelkey=product_openedge_128&q=%s"
+      },
+      {
+        "sitename": "OpenEdge KnowledgeBase",
+        "url": "https://community.progress.com/s/global-search/%40uri#q=%s&t=KnowledgeBase&sort=relevancy&f:@commonproductgroup=[OpenEdge]"
+      },
+      {
+        "sitename": "Google site:progress.com",
+        "url": "https://www.google.com/search?q=site:progress.com%20%s"
+      },
+      {
+        "sitename": "Progresstalk",
+        "url": "https://www.progresstalk.com/search/1745231/?q=%s&o=date"
+      },
+      {
+        "sitename": "Stack Overflow",
+        "url": "https://stackoverflow.com/search?q=%s"
+      },
+      {
+        "sitename": "Google",
+        "url": "https://www.google.com/search?q=%s"
+      }
+    ],
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#1B330E",
+      "titleBar.activeBackground": "#264813",
+      "titleBar.activeForeground": "#F6FCF3"
+    },
+    "abl.buildMode": 1,
+    "files.exclude": {
+      "**/.pct/**": true,
+      "**/*.r": true,
+      "**/*.xref": true
+    },
+    "replacerules.rules": {
+      "Replace User": {
+          "find": "\\bcverbiest\\b",
+          "replace": "user"
+      },
+      "Replace domain": {
+          "find": "\\bgithub\\b",
+          "replace": "domain"
+      }
+  },
+  "replacerules.rulesets": {
+      "Remove user info": {
+          "rules": [
+              "Replace User",
+              "Replace domain"
+          ]
+      }
+  },
+
+    "taskExplorer.enabledTasks": {
+      "composer": false,
+      "grunt": false,
+      "gulp": false,
+      "make": false,
+      "maven": false,
+      "npm": false,
+      "perl": false,
+      "pipenv": false,
+      "ruby": false,
+      "tsc": false
+    },
+    "taskExplorer.enableSideBar": true,
+    "webSearch.addToSelectedText": false
+  }
+}

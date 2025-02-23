@@ -1,0 +1,848 @@
+{
+    "Frame name": {
+        "scope": "abl",
+        "prefix": "&FR",
+        "body": [
+            "{&FRAME-NAME} $1"
+        ],
+        "description": "abl Frame name"
+    },
+    "Global define": {
+        "scope": "abl",
+        "prefix": "&GL",
+        "body": [
+            "&global-define $1"
+        ],
+        "description": "abl Global define  "
+    },
+    "&if": {
+        "scope": "abl",
+        "prefix": "&if",
+        "body": [
+            "&if $1",
+            "&then",
+            "&endif"
+        ],
+        "description": "abl "
+    },
+    "Scoped define": {
+        "scope": "abl",
+        "prefix": "&SC",
+        "body": [
+            "&scoped-define $1"
+        ],
+        "description": "abl Scoped define  "
+    },
+    "blocklevel": {
+        "scope": "abl",
+        "prefix": "blocklevel",
+        "body": [
+            "block-level on error undo, throw."
+        ],
+        "description": "abl "
+    },
+    "Catch block": {
+        "scope": "abl",
+        "prefix": "catch",
+        "body": [
+            "catch $1 as Progress.Lang.Error:",
+            "   $2",
+            "end catch."
+        ],
+        "description": "abl Catch block"
+    },
+    "define buffer": {
+        "scope": "abl",
+        "prefix": "dbf",
+        "body": [
+            "define buffer ${1:lb}${2/(.*)/${1:/upcase}/} for ${2/(.*)/${1:/upcase}/}."
+        ],
+        "description": "abl define buffer"
+    },
+    "Event with delegate": {
+        "scope": "abl",
+        "prefix": "defdelevent",
+        "body": [
+            "define event ${EventName} delegate ${DelegateType}."
+        ],
+        "description": "abl Event with delegate  "
+    },
+    "Define class based event": {
+        "scope": "abl",
+        "prefix": "defevent",
+        "body": [
+            "/*------------------------------------------------------------------------------",
+            "    Purpose: Raised $1",
+            "    Notes :",
+            "    @param sender The object that raised the ${event} event",
+            "    @param e The  ${event}Arguments with the data for the event",
+            " ------------------------------------------------------------------------------*/",
+            "define public event ${event} signature void (iSender as Progress.Lang.Object , iEventArguments as ${event}Arguments).",
+            "",
+            "/*------------------------------------------------------------------------------",
+            "    Purpose: Raises the ${event}",
+            "    Notes :",
+            "    @param e The  ${event}Arguments with the data for the event",
+            "------------------------------------------------------------------------------*/",
+            "method protected void On${event} (iEventArguments as ${event}Arguments):",
+            "",
+            "    this-object:${event}:Publish (this-object, iEventArguments).",
+            "",
+            "end method."
+        ],
+        "description": "abl Define class based event"
+    },
+    "derr": {
+        "scope": "abl",
+        "prefix": "derr",
+        "body": [
+            "do on error undo, leave:",
+            "     $1",
+            "end."
+        ],
+        "description": "abl "
+    },
+    "Event with signature": {
+        "scope": "abl",
+        "prefix": "DES",
+        "body": [
+            "define event ${EventName} signature ${ReturnType} ( ${Parameters } )."
+        ],
+        "description": "abl Event with signature "
+    },
+    "dfor": {
+        "scope": "abl",
+        "prefix": "dfor",
+        "body": [
+            "do for $1:",
+            "     ",
+            "end."
+        ],
+        "description": "abl "
+    },
+    "Method": {
+        "scope": "abl",
+        "prefix": "method",
+        "body": [
+            "    /**",
+            "      * Purpose: ${MethodName}",
+            "      * @param parameter1 Description",
+            "      * @return ${ReturnType} ",
+            "      */",
+            "    method public ${ReturnType} ${MethodName}():",
+            "        ",
+            "    end method. /* ${MethodName} */"
+        ],
+        "description": "abl Method Signature   "
+    },
+    "Method Signature": {
+        "scope": "abl",
+        "prefix": "DMS",
+        "body": [
+            "/*------------------------------------------------------------------------------",
+            "    Purpose:",
+            "    Notes:  ",
+            "    @param parameter1 Description",
+            "    @return ",
+            " ------------------------------------------------------------------------------*/",
+            "method public ${ReturnType} ${MethodName}()."
+        ],
+        "description": "abl Method Signature   "
+    },
+    "Define new class": {
+        "scope": "abl",
+        "prefix": "dncl",
+        "body": [
+            "define variable ${name} as ${class} no-undo.",
+            "${name} = new ${class}()."
+        ],
+        "description": "abl Define new class"
+    },
+    "Documentation comment": {
+        "scope": "abl",
+        "prefix": "docmt",
+        "body": [
+            "/**",
+            " * Purpose: $1",
+            " * Notes:   ${TM_SELECTED_TEXT}",
+            " * @param parameter1 Description",
+            " * @return ",
+            " */"
+        ],
+        "description": "abl Documentation comment"
+    },
+    "Property definition": {
+        "scope": "abl",
+        "prefix": "DPY",
+        "body": [
+            "/**",
+            " * Purpose: ${2:Name} ${3:DataType} property",
+            " * Notes:  ",
+            " */",
+            "define ${1|private,protected,package-protected,public|} property ${2:Name} as ${3:DataType} no-undo",
+            "    get.",
+            "    set."
+        ],
+        "description": "abl Property definition   "
+    },
+    "Static Character variable": {
+        "scope": "abl",
+        "prefix": "DSVCH",
+        "body": [
+            "define static variable $1 as character no-undo."
+        ],
+        "description": "abl Static Character variable"
+    },
+    "Character variable": {
+        "scope": "abl",
+        "prefix": "DVCH",
+        "body": [
+            "define variable $1 as character no-undo."
+        ],
+        "description": "abl Character variable"
+    },
+    "Class variable": {
+        "scope": "abl",
+        "prefix": "DVCL",
+        "body": [
+            "define variable ${name} as ${class} no-undo."
+        ],
+        "description": "abl Class variable"
+    },
+    "Com-handle variable": {
+        "scope": "abl",
+        "prefix": "DVCM",
+        "body": [
+            "define variable $1 as com-handle no-undo."
+        ],
+        "description": "abl Com-handle variable"
+    },
+    "Decimal variable": {
+        "scope": "abl",
+        "prefix": "DVDE",
+        "body": [
+            "define variable $1 as decimal no-undo."
+        ],
+        "description": "abl Decimal variable"
+    },
+    "Datetime variable": {
+        "scope": "abl",
+        "prefix": "DVDM",
+        "body": [
+            "define variable $1 as datetime no-undo."
+        ],
+        "description": "abl Datetime variable"
+    },
+    "Date variable": {
+        "scope": "abl",
+        "prefix": "DVDT",
+        "body": [
+            "define variable $1 as date no-undo."
+        ],
+        "description": "abl Date variable"
+    },
+    "Datetime-tz variable": {
+        "scope": "abl",
+        "prefix": "DVDTZ",
+        "body": [
+            "define variable $1 as datetime-tz no-undo."
+        ],
+        "description": "abl Datetime-tz variable"
+    },
+    "Handle variable": {
+        "scope": "abl",
+        "prefix": "DVHN",
+        "body": [
+            "define variable $1 as handle no-undo."
+        ],
+        "description": "abl Handle variable "
+    },
+    "Int64 variable": {
+        "scope": "abl",
+        "prefix": "DVI6",
+        "body": [
+            "define variable $1 as int64 no-undo."
+        ],
+        "description": "abl Int64 variable"
+    },
+    "Integer variable": {
+        "scope": "abl",
+        "prefix": "DVIN",
+        "body": [
+            "define variable $1 as integer no-undo."
+        ],
+        "description": "abl Integer variable"
+    },
+    "Longchar variable": {
+        "scope": "abl",
+        "prefix": "DVLC",
+        "body": [
+            "define variable $1 as longchar no-undo."
+        ],
+        "description": "abl Longchar variable"
+    },
+    "Logical variable": {
+        "scope": "abl",
+        "prefix": "DVLG",
+        "body": [
+            "define variable $1 as logical no-undo."
+        ],
+        "description": "abl Logical variable"
+    },
+    "Mem Pointer variable": {
+        "scope": "abl",
+        "prefix": "DVMP",
+        "body": [
+            "define variable $1 as memptr no-undo."
+        ],
+        "description": "abl Mem Pointer variable"
+    },
+    "Raw variable": {
+        "scope": "abl",
+        "prefix": "DVR",
+        "body": [
+            "define variable $1 as raw no-undo."
+        ],
+        "description": "abl Raw variable"
+    },
+    "Recid variable": {
+        "scope": "abl",
+        "prefix": "DVRC",
+        "body": [
+            "define variable $1 as recid no-undo."
+        ],
+        "description": "abl Recid variable"
+    },
+    "ROWID variable": {
+        "scope": "abl",
+        "prefix": "DVRI",
+        "body": [
+            "define variable $1 as rowid no-undo."
+        ],
+        "description": "abl ROWID variable"
+    },
+    "Widget variable": {
+        "scope": "abl",
+        "prefix": "DVWH",
+        "body": [
+            "define variable $1 as widget-handle no-undo."
+        ],
+        "description": "abl Widget variable"
+    },
+    "Dynamic function": {
+        "scope": "abl",
+        "prefix": "dynf",
+        "body": [
+            "dynamic-function('$1') "
+        ],
+        "description": "abl Dynamic function"
+    },
+    "exclusive-lock": {
+        "scope": "abl",
+        "prefix": "excl",
+        "body": [
+            "exclusive-lock"
+        ],
+        "description": "abl exclusive-lock"
+    },
+    "Finally block": {
+        "scope": "abl",
+        "prefix": "FINALLY",
+        "body": [
+            "finally:",
+            "    ${TM_SELECTED_TEXT}$1",
+            "end finally."
+        ],
+        "description": "abl Finally block   "
+    },
+    "Character INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPCH",
+        "body": [
+            "define input-output parameter $1 as character no-undo."
+        ],
+        "description": "abl Character INPUT-OUTPUT parameter  "
+    },
+    "Com-handle INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPCM",
+        "body": [
+            "define input-output parameter $1 as com-handle no-undo."
+        ],
+        "description": "abl Com-handle INPUT-OUTPUT parameter"
+    },
+    "Decimal INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPDE",
+        "body": [
+            "define input-output parameter $1 as decimal no-undo."
+        ],
+        "description": "abl Decimal INPUT-OUTPUT parameter  "
+    },
+    "Datetime INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPDM",
+        "body": [
+            "define input-output parameter $1 as datetime no-undo."
+        ],
+        "description": "abl Datetime INPUT-OUTPUT parameter"
+    },
+    "Date INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPDT",
+        "body": [
+            "define input-output parameter $1 as date no-undo."
+        ],
+        "description": "abl Date INPUT-OUTPUT parameter  "
+    },
+    "Datetime-tz INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPDTZ",
+        "body": [
+            "define input-output parameter $1 as datetime-tz no-undo."
+        ],
+        "description": "abl Datetime-tz INPUT-OUTPUT parameter"
+    },
+    "Handle INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPHN",
+        "body": [
+            "define input-output parameter $1 as handle no-undo."
+        ],
+        "description": "abl Handle INPUT-OUTPUT parameter  "
+    },
+    "Int64 INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPI6",
+        "body": [
+            "define input-output parameter $1 as int64 no-undo."
+        ],
+        "description": "abl Int64 INPUT-OUTPUT parameter"
+    },
+    "Integer INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPIN",
+        "body": [
+            "define input-output parameter $1 as integer no-undo."
+        ],
+        "description": "abl Integer INPUT-OUTPUT parameter  "
+    },
+    "Logical INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPLG",
+        "body": [
+            "define input-output parameter $1 as logical no-undo."
+        ],
+        "description": "abl Logical INPUT-OUTPUT parameter  "
+    },
+    "Memptr INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPMP",
+        "body": [
+            "define input-output parameter $1 as memptr no-undo."
+        ],
+        "description": "abl Memptr INPUT-OUTPUT parameter   "
+    },
+    "Raw INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPR",
+        "body": [
+            "define input-output parameter $1 as raw no-undo."
+        ],
+        "description": "abl Raw INPUT-OUTPUT parameter"
+    },
+    "Recid INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPRC",
+        "body": [
+            "define input-output parameter $1 as recid no-undo."
+        ],
+        "description": "abl Recid INPUT-OUTPUT parameter"
+    },
+    "ROWID INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPRI",
+        "body": [
+            "define input-output parameter $1 as rowid no-undo."
+        ],
+        "description": "abl ROWID INPUT-OUTPUT parameter  "
+    },
+    "Widget INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IOPWH",
+        "body": [
+            "define input-output parameter $1 as widget no-undo."
+        ],
+        "description": "abl Widget INPUT-OUTPUT parameter  "
+    },
+    "Character INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPCH",
+        "body": [
+            "define input parameter $1 as character no-undo."
+        ],
+        "description": "abl Character INPUT parameter  "
+    },
+    "Longchar INPUT-OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPCLC",
+        "body": [
+            "define input parameter $1 as longchar no-undo."
+        ],
+        "description": "abl Longchar INPUT-OUTPUT parameter"
+    },
+    "Com-handle INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPCM",
+        "body": [
+            "define input parameter $1 as com-handle no-undo."
+        ],
+        "description": "abl Com-handle INPUT parameter"
+    },
+    "Decimal INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPDE",
+        "body": [
+            "define input parameter $1 as decimal no-undo."
+        ],
+        "description": "abl Decimal INPUT parameter  "
+    },
+    "Datetime INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPDM",
+        "body": [
+            "define input parameter $1 as datetime no-undo."
+        ],
+        "description": "abl Datetime INPUT parameter"
+    },
+    "Date INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPDT",
+        "body": [
+            "define input parameter $1 as date no-undo."
+        ],
+        "description": "abl Date INPUT parameter  "
+    },
+    "Datetime-tz INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPDTZ",
+        "body": [
+            "define input parameter $1 as datetime-tz no-undo."
+        ],
+        "description": "abl Datetime-tz INPUT parameter"
+    },
+    "Handle INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPHN",
+        "body": [
+            "define input parameter $1 as handle no-undo."
+        ],
+        "description": "abl Handle INPUT parameter  "
+    },
+    "Int64 INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPI6",
+        "body": [
+            "define input parameter $1 as int64 no-undo."
+        ],
+        "description": "abl Int64 INPUT parameter"
+    },
+    "Integer INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPIN",
+        "body": [
+            "define input parameter $1 as integer no-undo."
+        ],
+        "description": "abl Integer INPUT parameter  "
+    },
+    "Longchar INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPLC",
+        "body": [
+            "define input parameter $1 as longchar no-undo."
+        ],
+        "description": "abl Longchar INPUT parameter"
+    },
+    "Logical INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPLG",
+        "body": [
+            "define input parameter $1 as logical no-undo."
+        ],
+        "description": "abl Logical INPUT parameter  "
+    },
+    "Memptr INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPMP",
+        "body": [
+            "define input parameter $1 as memptr no-undo."
+        ],
+        "description": "abl Memptr INPUT parameter  "
+    },
+    "Raw INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPR",
+        "body": [
+            "define input parameter $1 as raw no-undo."
+        ],
+        "description": "abl Raw INPUT parameter"
+    },
+    "Recid INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPRC",
+        "body": [
+            "define input parameter $1 as recid no-undo."
+        ],
+        "description": "abl Recid INPUT parameter"
+    },
+    "ROWID INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPRI",
+        "body": [
+            "define input parameter $1 as rowid no-undo."
+        ],
+        "description": "abl ROWID INPUT parameter  "
+    },
+    "Widget INPUT parameter": {
+        "scope": "abl",
+        "prefix": "IPWH",
+        "body": [
+            "define input parameter $1 as widget no-undo."
+        ],
+        "description": "abl Widget INPUT parameter  "
+    },
+    "Message": {
+        "scope": "abl",
+        "prefix": "MES",
+        "body": [
+            "message $1",
+            "    view-as alert-box."
+        ],
+        "description": "abl Message  "
+    },
+    "msp": {
+        "scope": "abl",
+        "prefix": "msp",
+        "body": [
+            "message program-name(1) skip",
+            "    $1",
+            "    view-as alert-box."
+        ],
+        "description": "abl "
+    },
+    "no-error": {
+        "scope": "abl",
+        "prefix": "ner",
+        "body": [
+            "no-error"
+        ],
+        "description": "abl no-error"
+    },
+    "no-lock": {
+        "scope": "abl",
+        "prefix": "nol",
+        "body": [
+            "no-lock"
+        ],
+        "description": "abl no-lock"
+    },
+    "Character OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPCH",
+        "body": [
+            "define output parameter $1 as character no-undo."
+        ],
+        "description": "abl Character OUTPUT parameter  "
+    },
+    "Com-handle OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPCM",
+        "body": [
+            "define output parameter $1 as com-handle no-undo."
+        ],
+        "description": "abl Com-handle OUTPUT parameter"
+    },
+    "Decimal OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPDE",
+        "body": [
+            "define output parameter $1 as decimal no-undo."
+        ],
+        "description": "abl Decimal OUTPUT parameter  "
+    },
+    "Datetime OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPDM",
+        "body": [
+            "define output parameter $1 as datetime no-undo."
+        ],
+        "description": "abl Datetime OUTPUT parameter"
+    },
+    "Date OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPDT",
+        "body": [
+            "define output parameter $1 as date no-undo."
+        ],
+        "description": "abl Date OUTPUT parameter  "
+    },
+    "Datetime-tz OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPDTZ",
+        "body": [
+            "define output parameter $1 as datetime-tz no-undo."
+        ],
+        "description": "abl Datetime-tz OUTPUT parameter"
+    },
+    "Handle OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPHN",
+        "body": [
+            "define output parameter $1 as handle no-undo."
+        ],
+        "description": "abl Handle OUTPUT parameter  "
+    },
+    "Int64 OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPI6",
+        "body": [
+            "define output parameter $1 as int64 no-undo."
+        ],
+        "description": "abl Int64 OUTPUT parameter"
+    },
+    "Integer OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPIN",
+        "body": [
+            "define output parameter $1 as integer no-undo."
+        ],
+        "description": "abl Integer OUTPUT parameter  "
+    },
+    "Longchar OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPLC",
+        "body": [
+            "define output parameter $1 as longchar no-undo."
+        ],
+        "description": "abl Longchar OUTPUT parameter"
+    },
+    "Logical OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPLG",
+        "body": [
+            "define output parameter $1 as logical no-undo."
+        ],
+        "description": "abl Logical OUTPUT parameter  "
+    },
+    "Memptr OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPMP",
+        "body": [
+            "define output parameter $1 as memptr no-undo."
+        ],
+        "description": "abl Memptr OUTPUT parameter  "
+    },
+    "Raw OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPR",
+        "body": [
+            "define output parameter $1 as raw no-undo."
+        ],
+        "description": "abl Raw OUTPUT parameter"
+    },
+    "Recid OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPRC",
+        "body": [
+            "define output parameter $1 as recid no-undo."
+        ],
+        "description": "abl Recid OUTPUT parameter"
+    },
+    "ROWID OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPRI",
+        "body": [
+            "define output parameter $1 as rowid no-undo."
+        ],
+        "description": "abl ROWID OUTPUT parameter  "
+    },
+    "Widget OUTPUT parameter": {
+        "scope": "abl",
+        "prefix": "OPWH",
+        "body": [
+            "define output parameter $1 as widget-handle no-undo."
+        ],
+        "description": "abl Widget OUTPUT parameter   "
+    },
+    "p0bh": {
+        "scope": "abl",
+        "prefix": "p0bh",
+        "body": [
+            "pause 0 before-hide."
+        ],
+        "description": "abl "
+    },
+    "prolint no warn": {
+        "scope": "abl",
+        "prefix": "plnw",
+        "body": [
+            "{&_proparse_ prolint-nowarn($1)} /* added by $2 */"
+        ],
+        "description": "abl prolint no warn"
+    },
+    "pp": {
+        "scope": "abl",
+        "prefix": "pp",
+        "body": [
+            "{&$1}"
+        ],
+        "description": "abl  preprocess variable reference"
+    },
+    "proparse": {
+        "scope": "abl",
+        "prefix": "proparse",
+        "body": [
+            "{&_proparse_ prolint-nowarn($1)} /* added by $2 */"
+        ],
+        "description": "abl "
+    },
+    "rulecoment": {
+        "scope": "abl",
+        "prefix": "rulecoment",
+        "body": [
+            "/*",
+            "         1         2         3         4         5         6         7         8         9         0         1         2         3         4         5         6         7         8         9         0",
+            "12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890",
+            "*/"
+        ],
+        "description": "abl Rule comment"
+    },
+    "todo": {
+        "scope": "abl",
+        "prefix": "todo",
+        "body": [
+            "@todo(msg=\"${1:message}\", author=\"${2:USERNAME}\", datetime=\"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE\")."
+        ],
+        "description": "abl "
+    },
+    "Add UIB procedure": {
+        "scope": "abl",
+        "prefix": "uibproc",
+        "body": [
+            "&ANALYZE-SUSPEND _UIB-CODE-BLOCK _PROCEDURE ${procedure} W-Win ",
+            "procedure ${procedure} :",
+            "/*------------------------------------------------------------------------------",
+            "  Purpose: $1",
+            "  Parameters:  ",
+            "  Notes:",
+            "------------------------------------------------------------------------------*/",
+            "",
+            "end procedure.",
+            "",
+            "/* _UIB-CODE-BLOCK-END */",
+            "&ANALYZE-RESUME",
+            ""
+        ],
+        "description": "abl Add UIB/AppBuilder procedure"
+    }
+}
