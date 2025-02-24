@@ -32,11 +32,7 @@
         "url": "https://www.google.com/search?q=%s"
       }
     ],
-    "workbench.colorCustomizations": {
-      "activityBar.background": "#1B330E",
-      "titleBar.activeBackground": "#264813",
-      "titleBar.activeForeground": "#F6FCF3"
-    },
+    "workbench.colorCustomizations": {},
     "abl.buildMode": 1,
     "files.exclude": {
       "**/.pct/**": true,
