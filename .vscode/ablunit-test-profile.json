@@ -1,0 +1,8 @@
+{
+    "configurations": [{
+        "importOpenedgeProjectJson": true,
+        "command": {
+            "executable": "c:\\progress\\Openedge-12.8\\bin\\_progres.exe"
+        }
+    }]
+}
